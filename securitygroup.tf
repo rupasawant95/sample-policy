@@ -1,9 +1,20 @@
 provider "aws" {
+    region = "us-west-2"
+}
+resource "aws_instance" "terr-inc" {
+    ami         = "ami-074be47313f84fa38"
+    instance_type = "t2-micro"
+    security_groups = [aws_security_group_rule.terr-inc.name]
+    tags = {
+    Name = "Sentinel-check"
+    }
+}
+provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_security_group" "example" {
-  name        = "aws_security_group_rule"
+resource "aws_security_group_rule" "example" {
+  name        = "terra_security_group"
   description = "Example security group"
 
   # Define inbound rules
