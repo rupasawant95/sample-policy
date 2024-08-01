@@ -9,9 +9,6 @@ resource "aws_instance" "terr-inc" {
     Name = "Sentinel-check"
     }
 }
-provider "aws" {
-  region = "us-west-2"
-}
 
 resource "aws_security_group_rule" "example" {
   name        = "terra_security_group"
@@ -24,6 +21,4 @@ resource "aws_security_group_rule" "example" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  # Define outbound rules
 }
