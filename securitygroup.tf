@@ -3,22 +3,15 @@ provider "aws" {
 }
 
 resource "aws_security_group" "example" {
-  name        = "example-sg"
+  name        = "aws_security_group_rule"
   description = "Example security group"
 
   # Define inbound rules
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
-  }
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["192.168.1.0/24"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # Define outbound rules
